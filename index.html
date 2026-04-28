@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rocket League Ball Speed</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="speed-panel" aria-label="Live ball speed">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Rocket League Stats API</p>
+            <h1>Ball Speed</h1>
+          </div>
+          <div class="connection" data-status="idle" id="connectionStatus">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="connectionText">Disconnected</span>
+          </div>
+        </div>
+
+        <div class="speed-readout" aria-live="polite">
+          <span class="speed-value" id="speedValue">--</span>
+          <span class="speed-unit" id="speedUnit">kph</span>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric">
+            <span class="metric-label">API</span>
+            <strong id="rawSpeed">--</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Peak</span>
+            <strong id="peakSpeed">-- kph</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Last Event</span>
+            <strong id="lastEvent">Waiting</strong>
+          </div>
+        </div>
+
+        <canvas id="speedChart" width="900" height="180" aria-label="Recent speed history"></canvas>
+
+        <div class="controls" aria-label="Controls">
+          <label class="field">
+            <span>Socket</span>
+            <input id="socketUrl" type="text" spellcheck="false" value="ws://127.0.0.1:5173/rl" />
+          </label>
+
+          <fieldset class="unit-toggle">
+            <legend>Units</legend>
+            <label>
+              <input type="radio" name="unit" value="kph" checked />
+              <span>kph</span>
+            </label>
+            <label>
+              <input type="radio" name="unit" value="mph" />
+              <span>mph</span>
+            </label>
+            <label>
+              <input type="radio" name="unit" value="api" />
+              <span>API</span>
+            </label>
+          </fieldset>
+
+          <button id="connectButton" type="button">Connect</button>
+          <button id="resetButton" type="button">Reset Peak</button>
+        </div>
+      </section>
+
+      <section class="setup">
+        <h2>Setup</h2>
+        <ol>
+          <li>Edit <code>&lt;Rocket League Install Dir&gt;\TAGame\Config\DefaultStatsAPI.ini</code>.</li>
+          <li>Set <code>PacketSendRate</code> above <code>0</code>, for example <code>30</code>.</li>
+          <li>Keep the default <code>Port=49123</code>, or launch the bridge with <code>RL_STATS_PORT</code>.</li>
+          <li>Run <code>npm start</code>, open this page from <code>http://127.0.0.1:5173</code>, then press Connect.</li>
+        </ol>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

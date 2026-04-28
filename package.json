@@ -1,0 +1,23 @@
+{
+  "name": "rocket-league-ball-speed-overlay",
+  "version": "0.1.0",
+  "description": "A local Rocket League Stats API bridge and browser overlay for live ball speed.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check overlay.js"
+  },
+  "keywords": [
+    "rocket-league",
+    "obs",
+    "streaming",
+    "overlay",
+    "stats-api",
+    "ball-speed"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

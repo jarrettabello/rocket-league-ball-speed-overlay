@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rocket League Ball Speed Overlay</title>
+    <link rel="stylesheet" href="./overlay.css" />
+  </head>
+  <body>
+    <main class="overlay" id="overlay">
+      <section class="speed-bug" aria-label="Live ball speed overlay">
+        <div class="label-row">
+          <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+          <span id="labelText">Ball Speed</span>
+        </div>
+        <div class="speed-row" aria-live="polite">
+          <span id="speedValue">--.--</span>
+          <span id="speedUnit">KPH</span>
+        </div>
+        <div class="peak-row" id="peakRow" hidden>
+          Peak <span id="peakValue">--.-- KPH</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="./overlay.js"></script>
+  </body>
+</html>
